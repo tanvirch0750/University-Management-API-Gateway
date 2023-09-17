@@ -31,4 +31,4 @@ router.post(
 
 router.get('/', AcademicDepartmentController.getAllFromDB);
 
-export const academicSemesterRoutes = router;
+export const academicDepartmentRoutes = router;
