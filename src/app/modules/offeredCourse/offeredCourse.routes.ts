@@ -23,7 +23,7 @@ router.delete(
 );
 
 router.post(
-  '/create-course',
+  '/create-offered-course',
   validateRequest(OfferedCourseValidation.create),
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   OfferedCourseController.insertIntoDB

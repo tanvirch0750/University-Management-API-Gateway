@@ -23,7 +23,7 @@ const getByIdFromDB = async (req: Request): Promise<any> => {
 };
 
 const insertIntoDB = async (req: Request): Promise<any> => {
-  const response = await CoreService.post(`/course`, req.body, {
+  const response = await CoreService.post(`/course/create-course`, req.body, {
     headers: {
       Authorization: req.headers.authorization,
     },

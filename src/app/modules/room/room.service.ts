@@ -3,7 +3,7 @@ import { Request } from 'express';
 import { CoreService } from '../../../shared/axios';
 
 const getAllFromDB = async (req: Request): Promise<any> => {
-  const response = await CoreService.get('/room/create-room', {
+  const response = await CoreService.get('/room', {
     params: req.query,
     headers: {
       Authorization: req.headers.authorization,
@@ -23,7 +23,7 @@ const getByIdFromDB = async (req: Request): Promise<any> => {
 };
 
 const insertIntoDB = async (req: Request): Promise<any> => {
-  const response = await CoreService.post(`/room`, req.body, {
+  const response = await CoreService.post(`/room/create-room`, req.body, {
     headers: {
       Authorization: req.headers.authorization,
     },
