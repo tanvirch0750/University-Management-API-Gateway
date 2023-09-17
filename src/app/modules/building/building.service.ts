@@ -1,22 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request } from 'express';
-import { CoreService as HttpService } from '../../../shared/axios';
-
-const insertIntoDB = async (req: Request): Promise<any> => {
-  const response: any = await HttpService.post(
-    `/academic-faculty/create-faculty`,
-    req.body,
-    {
-      headers: {
-        Authorization: req.headers.authorization,
-      },
-    }
-  );
-  return response;
-};
+import { CoreService } from '../../../shared/axios';
 
 const getAllFromDB = async (req: Request): Promise<any> => {
-  const response: any = await HttpService.get('/academic-faculty', {
+  const response = await CoreService.get('/building/create-building', {
     params: req.query,
     headers: {
       Authorization: req.headers.authorization,
@@ -27,7 +14,16 @@ const getAllFromDB = async (req: Request): Promise<any> => {
 
 const getByIdFromDB = async (req: Request): Promise<any> => {
   const { id } = req.params;
-  const response: any = await HttpService.get(`/academic-faculty/${id}`, {
+  const response = await CoreService.get(`/building/${id}`, {
+    headers: {
+      Authorization: req.headers.authorization,
+    },
+  });
+  return response;
+};
+
+const insertIntoDB = async (req: Request): Promise<any> => {
+  const response = await CoreService.post(`/building`, req.body, {
     headers: {
       Authorization: req.headers.authorization,
     },
@@ -37,21 +33,7 @@ const getByIdFromDB = async (req: Request): Promise<any> => {
 
 const updateOneInDB = async (req: Request): Promise<any> => {
   const { id } = req.params;
-  const response: any = await HttpService.patch(
-    `/academic-faculty/${id}`,
-    req.body,
-    {
-      headers: {
-        Authorization: req.headers.authorization,
-      },
-    }
-  );
-  return response;
-};
-
-const deleteByIdFromDB = async (req: Request): Promise<any> => {
-  const { id } = req.params;
-  const response: any = await HttpService.delete(`/academic-faculty/${id}`, {
+  const response = await CoreService.patch(`/building/${id}`, req.body, {
     headers: {
       Authorization: req.headers.authorization,
     },
@@ -59,7 +41,17 @@ const deleteByIdFromDB = async (req: Request): Promise<any> => {
   return response;
 };
 
-export const AcademicFacultyService = {
+const deleteByIdFromDB = async (req: Request): Promise<any> => {
+  const { id } = req.params;
+  const response = await CoreService.delete(`/building/${id}`, {
+    headers: {
+      Authorization: req.headers.authorization,
+    },
+  });
+  return response;
+};
+
+export const BuildingService = {
   getAllFromDB,
   getByIdFromDB,
   updateOneInDB,
