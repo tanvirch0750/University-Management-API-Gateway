@@ -31,4 +31,4 @@ router.post(
 
 router.get('/', RoomController.getAllFromDB);
 
-export const buildingRoutes = router;
+export const roomRoutes = router;
