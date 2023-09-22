@@ -2,14 +2,18 @@ import express from 'express';
 import { academicDepartmentRoutes } from '../modules/academic-department/academicDepartment.routes';
 import { academicFacultyRoutes } from '../modules/academic-faculty/academicFaculty.routes';
 import { academicSemesterRoutes } from '../modules/academic-semester/academicSemester.routes';
+import { adminRoutes } from '../modules/admin/admin.routes';
 import { authRoutes } from '../modules/auth/auth.routes';
 import { buildingRoutes } from '../modules/building/building.routes';
 import { courseRoutes } from '../modules/course/course.routes';
+import { facultyRoutes } from '../modules/faculty/faculty.routes';
+import { managementDepartmentRoutes } from '../modules/managementDepartment/managementDepartment.routes';
 import { offeredCourseRoutes } from '../modules/offeredCourse/offeredCourse.routes';
 import { offeredCourseClassScheduleRoutes } from '../modules/offeredCourseClassSchedule/offeredCourseClassSchedule.routes';
 import { offeredCoursesSectionRoutes } from '../modules/offeredCourseSection/offeredCourseSection.routes';
 import { roomRoutes } from '../modules/room/room.routes';
 import { semesterRegistrationRoutes } from '../modules/semesterRegistration/semesterRegistration.routes';
+import { studentRoutes } from '../modules/student/student.routes';
 import { studentEnrolledCourseRoutes } from '../modules/studentEnrolledCourse/studentEnrolledCourse.routes';
 import { studentEnrolledCourseMarkRoutes } from '../modules/studentEnrolledCourseMark/studentEnrolledCourseMark.routes';
 import { studentSemesterPaymentRoutes } from '../modules/studentSemesterPayment/studentSemesterPayment.routes';
@@ -20,7 +24,7 @@ const router = express.Router();
 const moduleRoutes = [
   {
     path: '/auth',
-    route: authRoutes
+    route: authRoutes,
   },
   {
     path: '/users',
@@ -78,6 +82,22 @@ const moduleRoutes = [
   {
     path: '/student-semester-payment',
     route: studentSemesterPaymentRoutes,
+  },
+  {
+    path: '/student',
+    route: studentRoutes,
+  },
+  {
+    path: '/faculty',
+    route: facultyRoutes,
+  },
+  {
+    path: '/admin',
+    route: adminRoutes,
+  },
+  {
+    path: '/management-department',
+    route: managementDepartmentRoutes,
   },
 ];
 
